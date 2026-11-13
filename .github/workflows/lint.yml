@@ -11,6 +11,10 @@ jobs:
         with:
           version: '1'
       - uses: actions/checkout@v1
+      - uses: actions/cache@v4
+        with:
+          path: ~/.julia
+          key: ${{ runner.os }}-julia-v1-juliaformatter-0.14.4
       - name: Format check
         shell: julia --color=yes {0}
         run: |
